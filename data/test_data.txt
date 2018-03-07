@@ -1,7 +1,8 @@
 10
 turn on 0,0 through 9,9
+turn off 0,1 through 1,9
+turn on 0,0 through 9,9
 turn off 0,0 through 9,9
-switch 0,0 through 9,9
-turn off 0,0 through 9,9
-turn 2,2 through 7,7
+switch 0,1 through 2,9
+turn on 0,0 through 0,9
   

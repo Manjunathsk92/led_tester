@@ -9,7 +9,7 @@ import pytest
 
 from click.testing import CliRunner
 
-from led_tester import led_tester
+#from led_tester import led_tester
 from led_tester import cli
 from led_tester import utils
 import re
@@ -17,7 +17,7 @@ import re
 
 
 def test_command_line_interface():
-	ifile = 'test_data.txt'
+	ifile = '../data/test_data.txt'
 	N, instructions = utils.parseFile(ifile)
 	print("N is ", N)
 	print("instructions", instructions)
@@ -27,7 +27,7 @@ test_command_line_interface()
 pat = re.compile(".*(turn on|turn off|switch)\s*([+-]?\d+)\s*,\s*([+-]?\d+)\s*through\s*([+-]?\d+)\s*,\s*([+-]?\d+).*")
 print(pat)
 print(re.search('c', 'abc'))
-line = "trn off 0,0 through 9,9"
+line = "turn off 1,2 through 8,9"
 i=0
 while pat.search(line):
 	print("in while ", pat.search(line)[i] )
