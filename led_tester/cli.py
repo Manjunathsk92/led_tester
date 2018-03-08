@@ -15,6 +15,8 @@ def main(input=None):
     print("input", input)
     
     N, instructions = parseFile(input)
+    #for inst in instructions:
+        
     
     ledTester = LEDTester(N)
     var=0
@@ -24,6 +26,7 @@ def main(input=None):
             print("100 records")
         if var%1000 ==0:
             print("1000 records")
+            instruction=str(instruction)
         ledTester.apply(instruction)
     
         

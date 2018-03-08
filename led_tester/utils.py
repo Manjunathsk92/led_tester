@@ -1,15 +1,37 @@
 import re
-
+import urllib.request
 def parseFile(inp):
 	if inp.startswith('http'):
-		print("")
-		return None, None
+		N, instructions= None, []
+		#uri = "http://claritytrec.ucd.ie/~alawlor/comp30670/input_assign3.txt"
+		req = urllib.request.urlopen(inp)
+
+		buffer = req.read().decode('utf-8')
+		parsed_buffer=buffer.splitlines()
+		print("type buffer", type(parsed_buffer[10]))
+		#print("buffer", buffer1[1])
+		N=(parsed_buffer[0])
+		N=int(N)
+		print("N :", N)
+		#parsed_buffer=str(parsed_buffer)
+		
+		#print(len(parsed_buffer))
+		#for line in buffer.readlines():
+		#	instructions.append(line)
+		#return N, instructions
+		#print("")
+		for line in range(1,len(parsed_buffer)):
+				#print("line", line)
+				instructions.append(parsed_buffer[line])
+		#		return N, None
+		return N, instructions
 	else:
 		#read from disk
 		N, instructions= None, []
 		with open (inp, 'r') as f:
 			N=int(f.readline())
 			for line in f.readlines():
+				#print("line", line)
 				instructions.append(line)
 			return N, instructions
 		
@@ -17,6 +39,9 @@ def parseFile(inp):
 
 def parseInstruction(line):
 		pat = re.compile(".*(turn on|turn off|switch)\s*([+-]?\d+)\s*,\s*([+-]?\d+)\s*through\s*([+-]?\d+)\s*,\s*([+-]?\d+).*")
+		#print("line in parse", line, "type of:", type(line))
+		line=str(line)
+		
 		while pat.search(line):
 			return(pat.search(line)[1], int(pat.search(line)[2]), int(pat.search(line)[3]), int(pat.search(line)[4]), int(pat.search(line)[5]))
 		return ("Invalid", 0,0,0,0)
@@ -29,11 +54,12 @@ class LEDTester:
 	
 	def apply(self,instruction):
 		cmd, x1, y1, x2, y2 = parseInstruction(instruction)
-		if x2 > self.grid_size:
+		if x2 > self.grid_size-1:
 			x2=self.grid_size-1
 		
-		if y2 > self.grid_size:
+		if y2 > self.grid_size-1:
 			y2=self.grid_size-1
+		
 		
 		if x2 < 0:
 			x2=0
