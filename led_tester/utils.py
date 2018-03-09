@@ -7,14 +7,18 @@ def parseFile(inp):
 	#read from the server
 	if inp.startswith('http'):
 		N, instructions= None, []
+		try:    
+    			urllib.request.urlopen(inp)
+		except:
+    			print ("Given URL doesn't exist")
+    			return 0,0
 		req = urllib.request.urlopen(inp)
-
 		buffer = req.read().decode('utf-8')
 		parsed_buffer=buffer.splitlines()
 		N=(parsed_buffer[0])
 		N=int(N)
 		for line in range(1,len(parsed_buffer)):
-				instructions.append(parsed_buffer[line])
+			instructions.append(parsed_buffer[line])
 		return N, instructions
 	else:
 		#read from disk
