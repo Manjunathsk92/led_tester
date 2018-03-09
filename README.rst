@@ -2,36 +2,19 @@
 led_tester
 ==========
 
-
-.. image:: https://img.shields.io/pypi/v/led_tester.svg
-        :target: https://pypi.python.org/pypi/led_tester
-
-.. image:: https://img.shields.io/travis/Manjunathsk92/led_tester.svg
-        :target: https://travis-ci.org/Manjunathsk92/led_tester
-
-.. image:: https://readthedocs.org/projects/led-tester/badge/?version=latest
-        :target: https://led-tester.readthedocs.io/en/latest/?badge=latest
-        :alt: Documentation Status
-
-
-
-
 Assignment 3 of software engineering
 
+After the project is cloned from GitHub following steps need to be followed:
 
-* Free software: GNU General Public License v3
-* Documentation: https://led-tester.readthedocs.io.
+a. Install setup.py using the command pip install -e .
+b. The files can now be run using 
+led_tester --input filename.txt
+or
+python led_tester/cli.py --input filename.txt
+
+The filename.txt can either be a local file or a file on the server like 'http://claritytrec.ucd.ie/~alawlor/comp30670/input_assign3_d.txt'
 
 
-Features
---------
 
-* TODO
 
-Credits
--------
 
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
-
-.. _Cookiecutter: https://github.com/audreyr/cookiecutter
-.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
