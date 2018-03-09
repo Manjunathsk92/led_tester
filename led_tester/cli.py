@@ -13,24 +13,19 @@ click.disable_unicode_literals_warning = True
 def main(input=None):
     """Console script for ledtester."""
     print("input", input)
-    
+    #invoke the function to parse the input file
     N, instructions = parseFile(input)
-    #for inst in instructions:
         
-    
-    ledTester = LEDTester(N)
-    var=0
-    for instruction in instructions:
-        var+=1
-        if var%100==0:
-            print("100 records")
-        if var%1000 ==0:
-            print("1000 records")
+    if (N!=0):
+        #creating an object of the class LEDTester
+        ledTester = LEDTester(N)
+        for instruction in instructions:
             instruction=str(instruction)
-        ledTester.apply(instruction)
+            #invoke function to apply the commands
+            ledTester.apply(instruction)
     
-        
-    print("Number of lights on are : ", ledTester.countLights() )
+        #invoke the function to count the lights that are on and print it.
+        print("Number of lights on are : ", ledTester.countLights() )
     return 0
 
 

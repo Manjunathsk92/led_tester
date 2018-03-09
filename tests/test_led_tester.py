@@ -24,14 +24,5 @@ def test_command_line_interface():
 	assert N is not None
 #print(sys.path)
 test_command_line_interface()	
-pat = re.compile(".*(turn on|turn off|switch)\s*([+-]?\d+)\s*,\s*([+-]?\d+)\s*through\s*([+-]?\d+)\s*,\s*([+-]?\d+).*")
-print(pat)
-print(re.search('c', 'abc'))
-line = "turn off 1,2 through 8,9"
-i=0
-while pat.search(line):
-	print("in while ", pat.search(line)[i] )
-	i=i+1
-	if i==6:
-		break
+
 
