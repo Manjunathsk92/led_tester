@@ -7,6 +7,7 @@ def parseFile(inp):
 	#read from the server
 	if inp.startswith('http'):
 		N, instructions= None, []
+		#Below code was referred from https://stackoverflow.com/questions/16778435/python-check-if-website-exists
 		try:    
     			urllib.request.urlopen(inp)
 		except:
